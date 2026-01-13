@@ -1,23 +1,21 @@
-
 import db from "@/lib/db";
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 
-
-interface Params {
-  params: { id: string };
-}
-
-export async function GET(_req: Request, { params }: Params) {
+export async function GET(
+  _req: NextRequest,
+  { params }: { params: { id: string } }
+) {
   try {
     const journal = await db.journal.findUnique({
       where: { id: params.id },
     });
 
-    if (!journal)
+    if (!journal) {
       return NextResponse.json(
         { success: false, error: "Not found" },
         { status: 404 }
       );
+    }
 
     return NextResponse.json({ success: true, data: journal });
   } catch (error) {
@@ -29,8 +27,10 @@ export async function GET(_req: Request, { params }: Params) {
   }
 }
 
-
-export async function PUT(req: Request, { params }: Params) {
+export async function PUT(
+  req: NextRequest,
+  { params }: { params: { id: string } }
+) {
   try {
     const data = await req.json();
 
@@ -49,7 +49,10 @@ export async function PUT(req: Request, { params }: Params) {
   }
 }
 
-export async function DELETE(_req: Request, { params }: Params) {
+export async function DELETE(
+  _req: NextRequest,
+  { params }: { params: { id: string } }
+) {
   try {
     await db.journal.delete({
       where: { id: params.id },
