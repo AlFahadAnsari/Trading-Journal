@@ -9,7 +9,7 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from "@/components/ui/select";
 import toast from "react-hot-toast";
 import axios from "axios";
-import {  JournalSchemaType } from "../Common/Types";
+import { JournalSchemaType } from "../Common/Types";
 import { useState } from "react";
 
 export default function EditModal({
@@ -149,6 +149,8 @@ export default function EditModal({
               <SelectItem value="NotDone">Not Done</SelectItem>
             </SelectContent>
           </Select>
+
+          <a href={entry.img1} className="bg-red-500 text-white w-full py-2 px-4 text-center rounded-2xl" target="_blank">Open Your Image</a>
 
           <DialogFooter>
             <Button type="submit">Save Changes</Button>
