@@ -60,7 +60,6 @@ const Page = () => {
         img1,
         date: new Date(),
       });
-
       toast.success("Journal Saved!");
       reset();
     } catch (error) {
@@ -265,7 +264,7 @@ const Page = () => {
         <Input {...register("confirmTF")} placeholder="Confirm TF" className="hidden" />
 
 
-        <Button className="w-full text-lg" type="submit">
+        <Button className="w-full text-lg mb-20" type="submit">
           {loading ? (
             <>
               <Spinner /> Please wait

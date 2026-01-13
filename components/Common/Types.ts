@@ -1,6 +1,7 @@
 import { z } from "zod";
 
 export const journalSchema = z.object({
+  id:z.any,
   totalTrades: z.string().optional(),
   session: z.string().optional(),
   tradeResult: z.string().optional(),

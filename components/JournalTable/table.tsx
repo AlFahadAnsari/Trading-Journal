@@ -87,7 +87,6 @@ export default function JournalTable() {
           entry={editingRow}
           onClose={() => {
             setEditingRow(null);
-            loadData();
           }}
         />
       )}
